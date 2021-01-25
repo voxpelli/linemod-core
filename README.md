@@ -38,7 +38,7 @@ Applies any modifications on the string input (`content`) and returns back the r
 
 ## Available modifications
 
-All linemods are added at the end of the file they are supposed to apply to
+Linemods are added at the end of the line they are supposed to apply to.
 
 ### `linemod-prefix-with:`
 
