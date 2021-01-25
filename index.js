@@ -7,7 +7,7 @@ const pathModule = require('path');
 
 /**
  * @typedef LinemodOptions
- * @property {string} outputExtension - including the leading dot
+ * @property {string} outputExtension including the leading dot
  */
 
 /**
