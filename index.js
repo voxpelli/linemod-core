@@ -3,7 +3,8 @@
 'use strict';
 
 const { readFile, writeFile } = require('fs').promises;
-const pathModule = require('path');
+
+const { changeExtension } = require('./lib/utils');
 
 /**
  * @typedef LinemodOptions
@@ -45,10 +46,7 @@ const linemodFile = async (filePath, { outputExtension }) => {
 
   const result = linemodApply(content);
 
-  const outputFilePath = pathModule.format({
-    ...pathModule.parse(filePath),
-    ext: outputExtension
-  });
+  const outputFilePath = changeExtension(filePath, outputExtension);
 
   await writeFile(outputFilePath, result, 'utf8');
 };

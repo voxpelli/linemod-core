@@ -5,16 +5,14 @@
 'use strict';
 
 const chai = require('chai');
-const chaiAsPromised = require('chai-as-promised');
 
-chai.use(chaiAsPromised);
 const should = chai.should();
 
 const {
   linemodApply,
 } = require('..');
 
-describe('linemodApply()', function () {
+describe('linemodApply()', () => {
   it('should throw on missing argument', () => {
     // @ts-ignore
     should.Throw(() => linemodApply(), TypeError, 'Requires content to be a string to apply linemod');
@@ -31,7 +29,7 @@ describe('linemodApply()', function () {
     should.Throw(() => linemodApply({}), TypeError, 'Requires content to be a string to apply linemod');
   });
 
-  it('should return  string on correct argument', () => {
+  it('should return string on correct argument', () => {
     linemodApply('foo').should.be.a('string');
   });
 
