@@ -13,19 +13,74 @@ yarn add --dev linemod-core
 ```
 
 ```javascript
+const { linemod } = require('linemod-core');
+const path = require('path');
 
+await linemod(
+  [pathModule.resolve(__dirname, 'index.js')],
+  { outputExtension: '.mjs' }
+);
 ```
 
-## Methods
+## API
 
-### `linemod(paths)`
+### `linemod(paths, { outputExtension }) => Promise<void>`
 
-**`paths`**: An `Array` of `string` _file paths_ that should be modified
+Takes an array of string file paths (`paths`), applies modifications to them and outputs them to the same destination with the specified extension (`outputExtension`)
 
-**Returns:** `AsyncGenerator` that emits `string`:s of the name of each found directory
+### `linemodFile(path, { outputExtension }) => Promise<void>`
 
-Similar functionality to `readdir()` from [`readdir-scoped-modules`](https://www.npmjs.com/package/readdir-scoped-modules).
+Same as `linemod()`, but takes a single string file path (`path`) rather than an array.
 
-Returns all directories in `path`, with the scoped directories (like `@foo`) expanded and joined with the directories directly beneath them (like eg. `@foo/abc` and `@foo/bar` if `abc` and `bar` are the two directories in `@foo`, though it will never expand to `@`- or `.`-prefixed subdirectories and will hence never return `@foo/@xyz` or `@foo/.bin`).
+### `linemodApply(content) => string`
 
-Will not return any directory with a name that begins with `.`.
+Applies any modifications on the string input (`content`) and returns back the resulting string.
+
+## Available modifications
+
+All linemods are added at the end of the file they are supposed to apply to
+
+### `linemod-prefix-with:`
+
+Prefixes the line with whatever is specified after the keyword:
+
+```javascript
+const exportedMethod = () => {}; // esm-prefix-with: export
+```
+
+Becomes:
+
+```javascript
+export const exportedMethod = () => {};
+```
+
+### `linemod-replace-with:`
+
+Replaces the line with whatever is specified after the keyword:
+
+```javascript
+const escape = require('stringify-entities'); // esm-replace-with: import escape from 'stringify-entities';
+```
+
+Becomes:
+
+```javascript
+import escape from 'stringify-entities';
+```
+
+### `linemod-remove`
+
+Simply removes the entire line.
+
+Quite useful when combined with `linemod-prefix-with`:
+
+```javascript
+const exportedMethod = () => {}; // esm-prefix-with: export
+module.exports = { exportedMethod }; // esm-remove
+```
+
+Becomes:
+
+```javascript
+export const exportedMethod = () => {};
+```
