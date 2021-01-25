@@ -1,6 +1,6 @@
 # Linemod Core
 
-Comment driven instructions to modify lines
+Comment driven line modifications
 
 [![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat)](https://github.com/standard/semistandard)
 
