@@ -20,7 +20,11 @@ describe('utils', function () {
       changeExtension('index.js', '.foo').should.equal('index.foo');
     });
     it('should handle absolute paths', () => {
-      changeExtension('/yet/another/long-path/to/a/file/index.js'.replace('/', pathModule.sep), '.foo').should.equal('/yet/another/long-path/to/a/file/index.foo'.replace('/', pathModule.sep));
+      const base = pathModule.sep === '\\'
+        ? 'C:\\yet\\another\\long-path\\to\\a\\file\\'
+        : '/yet/another/long-path/to/a/file/';
+
+      changeExtension(base + 'index.js', '.foo').should.equal(base + 'index.foo');
     });
   });
 });
