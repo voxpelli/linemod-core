@@ -47,7 +47,7 @@
   },
   "devDependencies": {
     "@types/chai": "^4.2.14",
-    "@types/mocha": "^8.2.0",
+    "@types/mocha": "^9.1.1",
     "@types/node": "^14.18.16",
     "@voxpelli/eslint-config": "^14.0.4",
     "@voxpelli/tsconfig": "^4.0.0",
@@ -68,7 +68,7 @@
     "ghat": "^0.14.0",
     "husky": "^8.0.0",
     "installed-check": "^5.0.0",
-    "mocha": "^8.2.1",
+    "mocha": "^10.0.0",
     "npm-run-all": "^4.1.5",
     "type-coverage": "^2.21.1",
     "typescript": "~4.6.0"
