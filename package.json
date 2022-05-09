@@ -33,9 +33,7 @@
     "clean:declarations": "rm -rf $(find . -maxdepth 2 -type f -name '*.d.ts*')",
     "clean": "run-p clean:*",
     "prepublishOnly": "run-s build",
-    "sync-gh-actions:lint": "ghat voxpelli/ghatemplates/lint",
-    "sync-gh-actions:nodejs": "ghat voxpelli/ghatemplates/nodejs --set jobs.test.strategy.matrix.node_version=\\[12,14,15\\]",
-    "sync-gh-actions": "run-p sync-gh-actions:*",
+    "sync-gh-actions": "ghat",
     "test:mocha": "c8 --reporter=lcov --reporter text mocha 'test/**/*.spec.js'",
     "test-ci": "run-s test:*",
     "test": "run-s check test:*"
