@@ -8,7 +8,7 @@ const chai = require('chai');
 
 chai.should();
 
-const pathModule = require('path');
+const pathModule = require('node:path');
 
 const {
   changeExtension,

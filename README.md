@@ -14,7 +14,7 @@ yarn add --dev linemod-core
 
 ```javascript
 const { linemod } = require('linemod-core');
-const path = require('path');
+const pathModule = require('node:path');
 
 await linemod(
   [pathModule.resolve(__dirname, 'index.js')],

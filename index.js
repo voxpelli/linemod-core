@@ -2,7 +2,7 @@
 
 'use strict';
 
-const { readFile, writeFile } = require('fs').promises;
+const { readFile, writeFile } = require('node:fs').promises;
 
 const { changeExtension } = require('./lib/utils');
 
