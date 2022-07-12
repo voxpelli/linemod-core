@@ -1,10 +1,6 @@
-/// <reference types="node" />
+import { readFile, writeFile } from 'node:fs/promises';
 
-'use strict';
-
-const { readFile, writeFile } = require('node:fs').promises;
-
-const { changeExtension } = require('./lib/utils');
+import { changeExtension } from './lib/utils.js';
 
 /**
  * @typedef LinemodOptions
@@ -15,7 +11,7 @@ const { changeExtension } = require('./lib/utils');
  * @param {string} content
  * @returns {string}
  */
-const linemodApply = (content) => {
+export function linemodApply (content) {
   if (typeof content !== 'string') throw new TypeError('Requires content to be a string to apply linemod');
 
   let result = content
@@ -34,14 +30,14 @@ const linemodApply = (content) => {
 
     return result;
   }
-};
+}
 
 /**
  * @param {string} filePath
  * @param {LinemodOptions} options
  * @returns {Promise<void>}
  */
-const linemodFile = async (filePath, { outputExtension }) => {
+export async function linemodFile (filePath, { outputExtension }) {
   const content = await readFile(filePath, 'utf8');
 
   const result = linemodApply(content);
@@ -49,21 +45,15 @@ const linemodFile = async (filePath, { outputExtension }) => {
   const outputFilePath = changeExtension(filePath, outputExtension);
 
   await writeFile(outputFilePath, result, 'utf8');
-};
+}
 
 /**
  * @param {string[]} fileMap
  * @param {LinemodOptions} options
  * @returns {Promise<void>}
  */
-const linemod = async (fileMap, options) => {
+export async function linemod (fileMap, options) {
   await Promise.all(
     fileMap.map(filePath => linemodFile(filePath, options))
   );
-};
-
-module.exports = {
-  linemodApply,
-  linemodFile,
-  linemod
-};
+}

@@ -1,16 +1,8 @@
-/// <reference types="node" />
-/// <reference types="mocha" />
-/// <reference types="chai" />
+import chai from 'chai';
 
-'use strict';
-
-const chai = require('chai');
+import { linemodApply } from '../index.js';
 
 const should = chai.should();
-
-const {
-  linemodApply,
-} = require('..');
 
 describe('linemodApply()', () => {
   it('should throw on missing argument', () => {

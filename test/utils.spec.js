@@ -1,18 +1,9 @@
-/// <reference types="node" />
-/// <reference types="mocha" />
-/// <reference types="chai" />
+import pathModule from 'node:path';
+import chai from 'chai';
 
-'use strict';
-
-const chai = require('chai');
+import { changeExtension } from '../lib/utils.js';
 
 chai.should();
-
-const pathModule = require('node:path');
-
-const {
-  changeExtension,
-} = require('../lib/utils');
 
 describe('utils', function () {
   describe('changeExtension()', () => {
