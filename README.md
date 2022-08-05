@@ -21,7 +21,7 @@ await linemod(
 );
 ```
 
-### In a CommonJS project
+### In CommonJS using available [`import()`](https://nodejs.org/api/esm.html#import-expressions) expression
 
 ```javascript
 const { linemod } = await import('linemod-core');
