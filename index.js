@@ -22,6 +22,7 @@ export function linemodApply (content) {
   if (result === content) {
     return result;
   } else {
+    // TODO: Trim whitespace at start of file?
     result = result.replace(/ +$/gm, '');
 
     if (/\n$/.test(result) === false && /\n$/.test(content) === true) {
