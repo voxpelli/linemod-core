@@ -15,15 +15,15 @@ export function linemodApply (content) {
   if (typeof content !== 'string') throw new TypeError('Requires content to be a string to apply linemod');
 
   let result = content
-    .replace(/^(\s*)[^\n/]+(?:\/[^\n/]+)*\/\/ linemod-replace-with:\s*([^\n]+)$/gm, '$1$2')
-    .replace(/^(\s*)([^\n/]+)\/\/ linemod-prefix-with:\s*([^\n]+)$/gm, '$1$3 $2')
-    .replace(/^(\s*)[^\n/]+\/\/ linemod-remove\n/gm, '');
+    .replaceAll(/^(\s*)[^\n/]+(?:\/[^\n/]+)*\/\/ linemod-replace-with:\s*([^\n]+)$/gm, '$1$2')
+    .replaceAll(/^(\s*)([^\n/]+)\/\/ linemod-prefix-with:\s*([^\n]+)$/gm, '$1$3 $2')
+    .replaceAll(/^(\s*)[^\n/]+\/\/ linemod-remove\n/gm, '');
 
   if (result === content) {
     return result;
   } else {
     // TODO: Trim whitespace at start of file?
-    result = result.replace(/ +$/gm, '');
+    result = result.replaceAll(/ +$/gm, '');
 
     if (/\n$/.test(result) === false && /\n$/.test(content) === true) {
       result += '\n';
@@ -39,12 +39,14 @@ export function linemodApply (content) {
  * @returns {Promise<void>}
  */
 export async function linemodFile (filePath, { outputExtension }) {
+  // eslint-disable-next-line security/detect-non-literal-fs-filename
   const content = await readFile(filePath, 'utf8');
 
   const result = linemodApply(content);
 
   const outputFilePath = changeExtension(filePath, outputExtension);
 
+  // eslint-disable-next-line security/detect-non-literal-fs-filename
   await writeFile(outputFilePath, result, 'utf8');
 }
 
