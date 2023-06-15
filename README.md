@@ -45,12 +45,26 @@ Applies any modifications on the string input (`content`) and returns back the r
 
 Linemods are added at the end of the line they are supposed to apply to.
 
+### `linemod-add:`
+
+Prefixes the line with whatever is specified after the keyword:
+
+```javascript
+// linemod-add: import escape from 'stringify-entities';
+```
+
+Becomes:
+
+```javascript
+import escape from 'stringify-entities';
+```
+
 ### `linemod-prefix-with:`
 
 Prefixes the line with whatever is specified after the keyword:
 
 ```javascript
-const exportedMethod = () => {}; // esm-prefix-with: export
+const exportedMethod = () => {}; // linemod-prefix-with: export
 ```
 
 Becomes:
@@ -64,7 +78,7 @@ export const exportedMethod = () => {};
 Replaces the line with whatever is specified after the keyword:
 
 ```javascript
-const escape = require('stringify-entities'); // esm-replace-with: import escape from 'stringify-entities';
+const escape = require('stringify-entities'); // linemod-replace-with: import escape from 'stringify-entities';
 ```
 
 Becomes:
@@ -80,8 +94,8 @@ Simply removes the entire line.
 Quite useful when combined with `linemod-prefix-with`:
 
 ```javascript
-const exportedMethod = () => {}; // esm-prefix-with: export
-module.exports = { exportedMethod }; // esm-remove
+const exportedMethod = () => {}; // linemod-prefix-with: export
+module.exports = { exportedMethod }; // linemod-remove
 ```
 
 Becomes:

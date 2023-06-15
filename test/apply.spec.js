@@ -33,6 +33,18 @@ describe('linemodApply()', () => {
     linemodApply('  fo   o\n\n').should.equal('  fo   o\n\n');
   });
 
+  it('should support add mod', () => {
+    linemodApply(`
+      first
+      // linemod-add: replaced
+      third
+    `).should.equal(`
+      first
+      replaced
+      third
+`);
+  });
+
   it('should support replace-with mod', () => {
     linemodApply(`
       first
