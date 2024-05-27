@@ -10,6 +10,7 @@ describe('utils', function () {
     it('should change the file extension', () => {
       changeExtension('index.js', '.foo').should.equal('index.foo');
     });
+
     it('should handle absolute paths', () => {
       const base = pathModule.sep === '\\'
         ? 'C:\\yet\\another\\long-path\\to\\a\\file\\'
