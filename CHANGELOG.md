@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.0.2](https://github.com/voxpelli/linemod-core/compare/v2.0.1...v2.0.2) (2024-07-19)
+
+
+### 🩹 Fixes
+
+* mods should allow single slashes on line ([c3aefed](https://github.com/voxpelli/linemod-core/commit/c3aefed58bad1486cc72a6dbfbecb9db8a79069b))
+
+
+### 🧹 Chores
+
+* **deps:** update linting dependencies ([#43](https://github.com/voxpelli/linemod-core/issues/43)) ([d65edc1](https://github.com/voxpelli/linemod-core/commit/d65edc1a533438b074a0708bdaef205c335ac6b9))
+* **deps:** update test dependencies ([#41](https://github.com/voxpelli/linemod-core/issues/41)) ([40c8b4f](https://github.com/voxpelli/linemod-core/commit/40c8b4f43af744f865c04aaf0408b8da9118eae4))
+* **deps:** update type dependencies ([#36](https://github.com/voxpelli/linemod-core/issues/36)) ([61a3999](https://github.com/voxpelli/linemod-core/commit/61a3999e055ff7b08be1007243f63fabb674919c))
+
 ## [2.0.1](https://github.com/voxpelli/linemod-core/compare/v2.0.0...v2.0.1) (2024-06-25)
 
 
