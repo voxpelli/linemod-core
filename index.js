@@ -17,8 +17,8 @@ export function linemodApply (content) {
   let result = content
     .replaceAll(/^(\s*)\/\/ linemod-add:\s*([^\n]+)$/gm, '$1$2')
     .replaceAll(/^(\s*)[^\n/]+(?:\/[^\n/]+)*\/\/ linemod-replace-with:\s*([^\n]+)$/gm, '$1$2')
-    .replaceAll(/^(\s*)([^\n/]+)\/\/ linemod-prefix-with:\s*([^\n]+)$/gm, '$1$3 $2')
-    .replaceAll(/^(\s*)[^\n/]+\/\/ linemod-remove\n/gm, '');
+    .replaceAll(/^(\s*)([^\n/]+(?:\/[^\n/]+)*)\/\/ linemod-prefix-with:\s*([^\n]+)$/gm, '$1$3 $2')
+    .replaceAll(/^(\s*)[^\n/]+(?:\/[^\n/]+)*\/\/ linemod-remove\n/gm, '');
 
   if (result === content) {
     return result;

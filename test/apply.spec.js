@@ -50,10 +50,14 @@ describe('linemodApply()', () => {
       first
       second // linemod-replace-with: replaced
       third
+      fourth with some tricky('./foo/bar.js') characters // linemod-replace-with: replaced-another
+      fifth
     `).should.equal(`
       first
       replaced
       third
+      replaced-another
+      fifth
 `);
   });
 
@@ -62,10 +66,14 @@ describe('linemodApply()', () => {
       first
       second // linemod-prefix-with: prefixed
       third
+      fourth with some tricky('./foo/bar.js') characters // linemod-prefix-with: prefixed
+      fifth
     `).should.equal(`
       first
       prefixed second
       third
+      prefixed fourth with some tricky('./foo/bar.js') characters
+      fifth
 `);
   });
 
@@ -74,9 +82,12 @@ describe('linemodApply()', () => {
       first
       second // linemod-remove
       third
+      fourth with some tricky('./foo/bar.js') characters // linemod-remove
+      fifth
     `).should.equal(`
       first
       third
+      fifth
 `);
   });
 
