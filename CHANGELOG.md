@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.0.3](https://github.com/voxpelli/linemod-core/compare/v2.0.2...v2.0.3) (2024-10-24)
+
+
+### 🧹 Chores
+
+* **deps:** update dev dependencies ([dfa5474](https://github.com/voxpelli/linemod-core/commit/dfa547489b0e01d97172e4198e38084aa42731e7))
+* **deps:** update linting ([1e7e363](https://github.com/voxpelli/linemod-core/commit/1e7e363dd4f3bfcda2715d54235524daba7e7d44))
+
 ## [2.0.2](https://github.com/voxpelli/linemod-core/compare/v2.0.1...v2.0.2) (2024-07-19)
 
 
