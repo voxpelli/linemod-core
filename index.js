@@ -1,3 +1,6 @@
+/* eslint-disable regexp/no-misleading-capturing-group */
+/* eslint-disable regexp/no-super-linear-backtracking */
+
 import { readFile, writeFile } from 'node:fs/promises';
 
 import { changeExtension } from './lib/utils.js';
